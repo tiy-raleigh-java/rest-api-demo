@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Repo Form</title>
+    <link rel="stylesheet" href="../static/css/styles.css" th:href="'/css/styles.css'" />
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html" th:href="'/'">Home</a></li>
+        <li><a href="repoForm.html" th:href="'/repoForm'">New Repo</a></li>
+    </ul>
+</nav>
+
+<h1>Create Repo</h1>
+
+<form action="index.html" th:action="'/saveRepo'" method="post">
+    <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="" />
+    </div>
+    <div class="field">
+        <label for="description">Description</label>
+        <textarea name="description" id="description"></textarea>
+    </div>
+    <div class="field">
+        <label>
+            <input type="checkbox" name="private" value="true" /> Private?
+        </label>
+    </div>
+
+    <button>Save Repo</button>
+</form>
+
+
+</body>
+</html>

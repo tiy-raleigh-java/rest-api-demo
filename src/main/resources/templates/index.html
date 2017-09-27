@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Your Repos</title>
+    <link rel="stylesheet" href="../static/css/styles.css" th:href="'/css/styles.css'" />
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html" th:href="'/'">Home</a></li>
+        <li><a href="repoForm.html" th:href="'/repoForm'">New Repo</a></li>
+    </ul>
+</nav>
+
+<h1>Your <span th:text="${repos.size()}">3</span> Github Repos</h1>
+
+<form action="index.html" th:action="'/'" method="get" class="searchForm">
+    <label for="search">Search:</label>
+    <input type="text" name="search" id="search" value="" th:value="${search}"  />
+    <button>Go</button>
+</form>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Is Private?</th>
+        <th>Is Fork?</th>
+    </tr>
+    <tr th:each="repo : ${repos}">
+        <td><a href="https://github.com/dhughes/newline-powertools" th:href="${repo.htmlUrl}" target="_blank" th:text="${repo.name}">My Public Repo 1</a></td>
+        <td th:text="${repo.description}">This is a description!</td>
+        <td class="check"><img src="../static/img/check.png" th:src="'/img/check.png'" th:if="${repo.private}" /></td>
+        <td class="check"><img src="../static/img/check.png" th:src="'/img/check.png'" th:if="${repo.fork}" /></td>
+    </tr>
+    <tr th:remove="all">
+        <td><a href="https://github.com/dhughes/newline-powertools" target="_blank">A Private Repo</a></td>
+        <td>This is a private repo.</td>
+        <td class="check"><img src="../static/img/check.png" th:src="'/img/check.png'" /></td>
+        <td class="check"></td>
+    </tr>
+    <tr th:remove="all">
+        <td><a href="https://github.com/dhughes/newline-powertools" target="_blank">Forked Repo</a></td>
+        <td>An example of a forked repo.</td>
+        <td class="check"></td>
+        <td class="check"><img src="../static/img/check.png" th:src="'/img/check.png'" /></td>
+    </tr>
+</table>
+
+</body>
+</html>

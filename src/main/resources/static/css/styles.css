@@ -1,0 +1,67 @@
+body{
+    font-family: sans-serif;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li{
+    display: inline;
+}
+
+tr td, tr th{
+    border: 1px solid black;
+    padding: 0.35em;
+}
+
+tr th{
+    background-color: darkblue;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(2n+1){
+    background-color: lightgray;
+}
+
+td img{
+    width: 1em;
+    height: 1em;
+}
+
+td.check{
+    text-align: center;
+    width: 6em;
+}
+
+div.field{
+    margin: 1em auto;
+}
+
+label{
+    display: block;
+    font-weight: bold;
+}
+
+input[type='text'], textarea{
+    width: 25em;
+}
+
+textarea{
+    height: 3em;
+}
+
+.searchForm{
+    margin: 1em auto;
+}
+
+.searchForm label{
+    float: left;
+    margin-right: 0.5em;
+}
